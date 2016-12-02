@@ -41,7 +41,7 @@ class Etcd:
             return response
 
     def put_client_path(self, path, data):
-        request = urllib2.Request(self.client_url(path), data=urlencode(data).replace("false", "False"))
+        request = urllib2.Request(self.client_url(path), data=urlencode(data).replace("False", "false"))
         if self.authentication is not None:
             base64string = base64.encodestring('%s:%s' % (self.authentication["username"], self.authentication["password"])).replace('\n', '')
             request.add_header("Authorization", "Basic %s" % base64string)
